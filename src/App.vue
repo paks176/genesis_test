@@ -1,28 +1,56 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="app__container">
+    <div id="app">
+      <div class="d-flex align-items-center justify-content-between">
+        <ButtonComponent/>
+        <SelectComponent :options="selectOptions"/>
+      </div>
+
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ButtonComponent from './components/ButtonComponent.vue';
+import SelectComponent from './components/SelectComponent.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    ButtonComponent,
+    SelectComponent,
+  },
+  data() {
+    return {
+      selectOptions: {
+        lead: 'Сделка',
+        contact: 'Контакт',
+        company: 'Компания',
+      },
+    }
+  },
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "@/assets/global-styles.scss";
+body {
+  margin: 0;
+}
+.app {
+  &__container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  min-width: 425px;
+  min-height: 600px;
+  padding: 1.5rem;
+  border-radius: 24px;
+  box-shadow: 0 5px 5px 3px rgba(34, 60, 80, 0.2);
 }
 </style>
