@@ -1,11 +1,11 @@
 <template>
   <div class="app__container">
-    <div id="app">
-      <div class="d-flex align-items-center justify-content-between">
-        <ButtonComponent/>
+    <div id="app" class="d-flex flex-column">
+      <div class="d-flex align-items-center justify-content-between mb-4">
         <SelectComponent :options="selectOptions"/>
+        <ButtonComponent/>
       </div>
-
+      <ResultsList/>
     </div>
   </div>
 </template>
@@ -13,12 +13,14 @@
 <script>
 import ButtonComponent from './components/ButtonComponent.vue';
 import SelectComponent from './components/SelectComponent.vue';
+import ResultsList from './components/ResultsList.vue';
 
 export default {
   name: 'App',
   components: {
     ButtonComponent,
     SelectComponent,
+    ResultsList,
   },
   data() {
     return {
